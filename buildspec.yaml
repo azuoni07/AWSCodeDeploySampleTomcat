@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn clean install
+      - ls target
+  post_build:
+    commands:
+      - echo Build completed. Copying artifacts to output...
+      #- aws s3 cp target/*.war s3://java-artifacts-devops4solutions/target/LoginWebApp.war
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: yes

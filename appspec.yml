@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+
+files:
+  - source: login.war
+    destination: /opt/apache-tomcat-9.0.93/webapps/
+
+hooks:
+  BeforeInstall:
+    - location: install.sh
+      timeout: 300
+      runas: root
